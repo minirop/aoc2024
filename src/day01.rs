@@ -11,10 +11,7 @@ pub fn star1() {
 	left.sort();
 	right.sort();
 
-	let mut total = 0;
-	for (l, r) in zip(left, right) {
-		total += (l - r).abs();
-	}
+	let total = zip(left, right).map(|(l, r)| (l - r).abs()).sum::<i32>();
 	println!("{total}");
 }
 
@@ -25,9 +22,6 @@ pub fn star2() {
 		return (parts[0].parse::<i32>().unwrap(), parts[1].parse::<i32>().unwrap());
 	}).collect();
 
-	let mut total = 0;
-	for val in left {
-		total += right.iter().filter(|x| **x == val).count() * (val as usize);
-	}
+	let total = left.iter().map(|val| right.iter().filter(|x| **x == *val).count() * (*val as usize)).sum::<usize>();
 	println!("{total}");
 }
