@@ -5,7 +5,8 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day07;
 
 fn main() {
-    day06::star2();
+    day07::star1_2();
 }
